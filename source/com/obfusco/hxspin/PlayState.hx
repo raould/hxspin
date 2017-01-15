@@ -7,6 +7,7 @@ import flixel.text.FlxText;
 import flixel.ui.FlxButton;
 import flixel.math.FlxMath;
 import flixel.util.FlxColor;
+import com.obfusco.hxspin.K;
 import com.obfusco.hxspin.sprites.*;
 
 class PlayState extends FlxState
@@ -14,9 +15,9 @@ class PlayState extends FlxState
 	override public function create():Void
 	{
 		bgColor = FlxColor.GREEN;
-		add(new FlxText(10, 10, 100, "Hello, World!"));
-		var p = new Person(0, 0);
-		p.screenCenter();
+		
+		var p = new Person(K.OffscreenX, K.OffscreenY);
+		p.setPosition( FlxG.width/2 - p.frameWidth/2, FlxG.height - p.frameHeight );
 		add(p);
 		super.create();
 	}
