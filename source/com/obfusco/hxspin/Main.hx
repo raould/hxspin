@@ -1,4 +1,4 @@
-package;
+package com.obfusco.hxspin;
 
 import flixel.FlxGame;
 import openfl.Lib;
@@ -19,6 +19,11 @@ class Main extends Sprite
 	public function new()
 	{
 		super();
-		addChild(new FlxGame(0, 0, /*todo:MenuState*/PlayState));
+		var g = new FlxGame(
+			0, 0,
+			/*todo:MenuState*/PlayState,
+			1, 60, 60, true,false
+		);
+		addChild(g);
 	}
 }

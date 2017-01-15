@@ -1,4 +1,4 @@
-package;
+package com.obfusco.hxspin;
 
 import flixel.FlxG;
 import flixel.FlxSprite;
@@ -7,11 +7,10 @@ import flixel.text.FlxText;
 import flixel.ui.FlxButton;
 import flixel.math.FlxMath;
 
-class PlayState extends FlxState
+class MenuState extends FlxState
 {
 	override public function create():Void
 	{
-		add(new FlxText(10, 10, 100, "Hello, World!"));
 		super.create();
 	}
 
