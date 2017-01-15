@@ -11,4 +11,9 @@ class Sign extends FlxSprite
 		// todo: i wish it would just use the resolution from the image itself?!
 		loadGraphic( "assets/images/sign1.png", false, 186, 54 );
 	}
+
+	override public function update(elapsed:Float):Void
+	{
+		angle += 100 * elapsed;
+	}
 }
