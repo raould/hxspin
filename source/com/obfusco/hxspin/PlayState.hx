@@ -16,9 +16,27 @@ class PlayState extends FlxState
 	{
 		bgColor = FlxColor.GREEN;
 		
+		// todo: abstract these out, too hard-coded in-lined here...
+
 		var p = new Person(K.OffscreenX, K.OffscreenY);
-		p.setPosition( FlxG.width/2 - p.frameWidth/2, FlxG.height - p.frameHeight );
+		p.setPosition(
+			FlxG.width/2 - p.frameWidth/2,
+			FlxG.height - p.frameHeight
+		);
 		add(p);
+
+		var s = new Sign(K.OffscreenX, K.OffscreenY);
+		s.setPosition(
+			p.x + p.frameWidth/2 - s.frameWidth/2,
+
+			// todo: instead of hard-coded position by the hands in the
+			// image, the player image should have hotspots registered and
+			// the sign should be set relative to them. blah.
+
+			p.y + p.frameHeight/2 - s.frameHeight/2 - 20
+		);
+		add(s);
+
 		super.create();
 	}
 
