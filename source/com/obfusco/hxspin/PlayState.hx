@@ -14,6 +14,9 @@ class PlayState extends FlxState
 {
 	override public function create():Void
 	{
+		// this is just here to make things compile, not because it really should be here.
+		var t = new Tracker ("assets/music/m1.mp3", 106 );
+
 		bgColor = FlxColor.GREEN;
 		
 		// todo: abstract these out, too hard-coded in-lined here...

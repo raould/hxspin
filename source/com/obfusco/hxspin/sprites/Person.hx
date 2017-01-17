@@ -9,6 +9,6 @@ class Person extends FlxSprite
 	{
 		super(X, Y);
 		// todo: i wish it would just use the resolution from the image itself?!
-		loadGraphic( "assets/images/standing.png", false, 96, 184 );
+		loadGraphic( K.Path_image_standing, false, 96, 184 );
 	}
 }
