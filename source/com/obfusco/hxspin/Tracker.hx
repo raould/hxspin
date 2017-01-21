@@ -19,5 +19,7 @@ class Tracker {
 		this.sound = FlxG.sound.load( K.Path_music_m1, 1 );
 	}
 
-	
+	public function start():Void {
+		sound.play();
+	}
 }

@@ -12,10 +12,11 @@ import com.obfusco.hxspin.sprites.*;
 
 class PlayState extends FlxState
 {
+	private var tracker:Tracker;
+
 	override public function create():Void
 	{
-		// this is just here to make things compile, not because it really should be here.
-		var t = new Tracker ("assets/music/m1.mp3", 106 );
+		tracker = new Tracker( "assets/music/m1.mp3", 106 );
 
 		bgColor = FlxColor.GREEN;
 		
@@ -46,5 +47,6 @@ class PlayState extends FlxState
 	override public function update(elapsed:Float):Void
 	{
 		super.update(elapsed);
+		tracker.play();
 	}
 }
