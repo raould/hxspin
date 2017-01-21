@@ -13,12 +13,21 @@ import com.obfusco.hxspin.sprites.*;
 class PlayState extends FlxState
 {
 	private var tracker:Tracker;
+	private var bgColors:Array<FlxColor>;
+	private var bgColorIndex:Int;
+
+	private function nextBgColor():Void {
+		bgColor = bgColors[ bgColorIndex ];
+		bgColorIndex = (bgColorIndex + 1) % bgColors.length;
+	}
 
 	override public function create():Void
 	{
-		tracker = new Tracker( "assets/music/m1.mp3", 106 );
-
-		bgColor = FlxColor.GREEN;
+		tracker = new Tracker( K.Music_m1_path, K.Music_m1_bpm );
+		tracker.start();
+		bgColors = [ FlxColor.RED, FlxColor.BLUE ];
+		bgColorIndex = 0;
+		nextBgColor();
 		
 		// todo: abstract these out, too hard-coded in-lined here...
 
@@ -47,6 +56,8 @@ class PlayState extends FlxState
 	override public function update(elapsed:Float):Void
 	{
 		super.update(elapsed);
-		tracker.play();
+		if( tracker.didBeatHappen() ) {
+			nextBgColor();
+		}
 	}
 }

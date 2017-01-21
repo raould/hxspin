@@ -1,2 +1,3 @@
++ nicer less hard coding of asset metdata.
 + abstract music loading to get right format per platform (ogg, mp3, wav, etc.).
 -- can be done in Project.xml apparently.
