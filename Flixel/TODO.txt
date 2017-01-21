@@ -1,4 +1,5 @@
 + currently not getting sufficient resolution on audio channels to get good beat matching.
+  + flixel is stuck on old versions of lime/openfl, dunno if they have fixed it since then.
 + implement nicer less hard coding of asset metdata (path, resolution, bpm).
 + right format per platform (ogg, mp3, wav, etc.).
   + can be done in Project.xml apparently.
