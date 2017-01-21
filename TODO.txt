@@ -1,3 +1,5 @@
-+ nicer less hard coding of asset metdata.
-+ abstract music loading to get right format per platform (ogg, mp3, wav, etc.).
--- can be done in Project.xml apparently.
++ currently not getting sufficient resolution on audio channels to get good beat matching.
++ implement nicer less hard coding of asset metdata (path, resolution, bpm).
++ right format per platform (ogg, mp3, wav, etc.).
+  + can be done in Project.xml apparently.
+
