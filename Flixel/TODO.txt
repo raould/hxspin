@@ -4,4 +4,8 @@
 + implement nicer less hard coding of asset metdata (path, resolution, bpm).
 + right format per platform (ogg, mp3, wav, etc.).
   + can be done in Project.xml apparently.
++ software rotation is purportedly 10x slower than rotation via tilesheet frames.
++ animate the player, duh. also wrt the sign motion.
++ might be funny to do a fake 3d spin around the head effect.
++ i don't like having lots of things keeping references to each other e.g. the Sign vs. ISpinModes, since that can lead to painful memory debugging later, but this is OOP code so eff it.
 + all the "todo"'s in code.

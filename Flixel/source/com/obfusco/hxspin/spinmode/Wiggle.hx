@@ -7,17 +7,19 @@ class Wiggle implements ISpinMode {
 	private static inline var MaxRotDegrees:Float = 30;
 	private static inline var MinRotDegrees:Float = -30;
 	private var degreesPerSecond:Float = 100;
+	private var sign:Sign;
 
-	public function new() {}
-
-    public function update( sign:Sign, elapsed:Float ):Void {
-		sign.angle = stepAngle( sign, elapsed );
-		updateWiggle( sign.angle );
+	public function new( sign:Sign ) {
+		this.sign = sign;
 	}
 
-	private function stepAngle( sign:Sign, elapsed:Float ):Float {
-		// todo: software rotation is purportedly 10x slower than rotation via tilesheet frames.
-		// todo: animate the player at least a little and match them up.
+    public function update( elapsed:Float ):Bool {
+		sign.angle = stepAngle( elapsed );
+		updateWiggle( sign.angle );
+		return false; // never really ends until interrupted.
+	}
+
+	private function stepAngle( elapsed:Float ):Float {
 		return sign.angle + degreesPerSecond * elapsed;
     }
                                                        

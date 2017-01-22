@@ -12,10 +12,19 @@ class Sign extends FlxSprite
 	public function new(?X:Float=0, ?Y:Float=0) {
 		super(X, Y);
 		loadGraphic( K.Image_sign_path, false, K.Image_sign_width, K.Image_sign_height );
-		updater = new Wiggle();
+		updater = new ThrowVertical( this );
 	}
 
-	override public function update(elapsed:Float):Void {
-		updater.update( this, elapsed );
+	private function defaultUpdater():Void {
+		updater = new Wiggle( this );
+	}
+
+	override public function update( elapsed:Float ):Void {
+		var done = updater.update( elapsed );
+/*
+		if( done ) {
+			defaultUpdater();
+		}
+*/
 	}
 }

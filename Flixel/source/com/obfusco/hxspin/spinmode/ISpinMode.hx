@@ -3,6 +3,7 @@ package com.obfusco.hxspin.spinmode;
 import com.obfusco.hxspin.sprites.Sign;
 
 interface ISpinMode {
-	function update( sign:Sign, elapsed:Float ):Void;
+	// return true if the spinmode is done, false otherwise.
+	function update( elapsed:Float ):Bool;
 }
 
