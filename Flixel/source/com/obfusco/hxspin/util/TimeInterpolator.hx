@@ -23,7 +23,7 @@ class TimeInterpolator {
             i = roughMsec;
         }
         // shows that this isn't going to work vs. real channel time position. :-(
-        trace( roughMsec, lastRoughMsec, now, lastMsec, i, dt );
+        // trace( roughMsec, lastRoughMsec, now, lastMsec, i, dt );
         return i;
     }
 

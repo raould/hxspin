@@ -3,4 +3,4 @@
 + implement nicer less hard coding of asset metdata (path, resolution, bpm).
 + right format per platform (ogg, mp3, wav, etc.).
   + can be done in Project.xml apparently.
-
++ all the "todo"'s in code.

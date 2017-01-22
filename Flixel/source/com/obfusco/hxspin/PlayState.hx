@@ -25,6 +25,7 @@ class PlayState extends FlxState
 	{
 		tracker = new Tracker( K.Music_m1_path, K.Music_m1_bpm );
 		tracker.start();
+        // bgColor changing is mostly just for debugging beats, not intended gameplay.
 		bgColors = [ FlxColor.RED, FlxColor.BLUE ];
 		bgColorIndex = 0;
 		nextBgColor();
