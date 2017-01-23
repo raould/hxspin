@@ -1,11 +1,25 @@
+FIXES
+
++ all the "todo"'s in code.
+
 + sorry there's very inconsistent formatting in the code.
+
 + currently not getting sufficient resolution on audio channels to get good beat matching.
   + flixel is stuck on old versions of lime/openfl, dunno if they have fixed it since then.
+
++ the physics is crap. as in, there isn't any.
+
 + implement nicer less hard coding of asset metdata (path, resolution, bpm).
+
 + right format per platform (ogg, mp3, wav, etc.).
   + can be done in Project.xml apparently.
+
 + software rotation is purportedly 10x slower than rotation via tilesheet frames.
+
 + animate the player, duh. also wrt the sign motion.
+
++ while i don't like having lots of things keeping references to each other e.g. the Sign vs. ISpinModes, since that can lead to painful memory debugging later, this *is* OOP code - so eff it.
+
+IDEAS
+
 + might be funny to do a fake 3d spin around the head effect.
-+ i don't like having lots of things keeping references to each other e.g. the Sign vs. ISpinModes, since that can lead to painful memory debugging later, but this is OOP code so eff it.
-+ all the "todo"'s in code.

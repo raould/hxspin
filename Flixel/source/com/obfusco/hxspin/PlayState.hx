@@ -42,11 +42,9 @@ class PlayState extends FlxState
 		var s = new Sign(K.OffscreenX, K.OffscreenY);
 		s.setPosition(
 			p.x + p.frameWidth/2 - s.frameWidth/2,
-
 			// todo: instead of hard-coded position by the hands in the
 			// image, the player image should have hotspots registered and
 			// the sign should be set relative to them. blah.
-
 			p.y + p.frameHeight/2 - s.frameHeight/2 - 20
 		);
 		add(s);
