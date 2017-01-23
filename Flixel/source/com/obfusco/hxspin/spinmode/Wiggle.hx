@@ -13,14 +13,14 @@ class Wiggle implements ISpinMode {
 		this.sign = sign;
 	}
 
-    public function update( elapsed:Float ):Bool {
-		sign.angle = stepAngle( elapsed );
+    public function update( dt:Float ):Bool {
+		sign.angle = stepAngle( dt );
 		updateWiggle( sign.angle );
 		return false; // never really ends until interrupted.
 	}
 
-	private function stepAngle( elapsed:Float ):Float {
-		return sign.angle + degreesPerSecond * elapsed;
+	private function stepAngle( dt:Float ):Float {
+		return sign.angle + degreesPerSecond * dt;
     }
                                                        
     private function updateWiggle( angle:Float ):Void {

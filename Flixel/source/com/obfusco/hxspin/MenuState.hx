@@ -14,8 +14,8 @@ class MenuState extends FlxState
 		super.create();
 	}
 
-	override public function update(elapsed:Float):Void
+	override public function update(dt:Float):Void
 	{
-		super.update(elapsed);
+		super.update(dt);
 	}
 }

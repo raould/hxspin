@@ -1,9 +1,13 @@
 package com.obfusco.hxspin;
 
 // todo: make these mutually incompatible for real (e.g. haskell 'newtype').
-typedef Mass = Float;
 
-// these are space=pixels and time=seconds based.
+// implicit units here are space=pixels and time=seconds based.
+// (must be compatible with FlxSprite.)
+// mass is i-do-not-know-what units.
+
+typedef Seconds = Float;
+typedef Mass = Float;
 typedef Dim = Float;
 typedef Pos = Float;
 typedef Vel = Float;

@@ -7,6 +7,7 @@ import flixel.text.FlxText;
 import flixel.ui.FlxButton;
 import flixel.math.FlxMath;
 import flixel.util.FlxColor;
+import com.obfusco.hxspin.Units;
 import com.obfusco.hxspin.K;
 import com.obfusco.hxspin.sprites.*;
 
@@ -52,9 +53,9 @@ class PlayState extends FlxState
 		super.create();
 	}
 
-	override public function update(elapsed:Float):Void
+	override public function update( dt:Seconds ):Void
 	{
-		super.update(elapsed);
+		super.update( dt );
 		if( tracker.didBeatHappen() ) {
 			nextBgColor();
 		}

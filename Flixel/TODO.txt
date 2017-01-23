@@ -1,6 +1,10 @@
 FIXES
 
++ sucks-a-lot that apparently the "openfl run neko" type command can get confused about the sources vs. exported (compiled) files, and not be updating the output, so much so that now i always do "make clean run-neko".
+
 + all the "todo"'s in code.
+
++ sorry the haxe emacs modes are broken in various ways. i am using funda-haxe-mode which means i can't use apostrophes in comments!
 
 + sorry there's very inconsistent formatting in the code.
 

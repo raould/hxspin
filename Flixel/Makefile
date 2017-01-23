@@ -1,3 +1,6 @@
+clean:
+	rm -rf export/*
+
 build-neko:
 	openfl build neko
 
