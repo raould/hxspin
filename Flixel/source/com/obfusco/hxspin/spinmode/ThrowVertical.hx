@@ -9,11 +9,13 @@ class ThrowVertical implements ISpinMode {
 	// todo: support a large throw vs. a small throw.
 	// todo: implement making the arc be auto-calculated to hit a given apex.
 	private var sign:Sign;
+	private var tracker:Tracker;
 	private var oy:Pos;
 	private var m:Particle;
 
-	public function new( sign:Sign ) {
+	public function new( sign:Sign, tracker:Tracker ) {
 		this.sign = sign;
+		this.tracker = tracker;
 		this.oy = sign.y;
 		this.m = new Particle( K.SignMass );
 		ParticleSpriteUtil.s2m( this.sign, m );

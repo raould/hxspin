@@ -6,11 +6,15 @@ class Wiggle implements ISpinMode {
     
 	private static inline var MaxRotDegrees:Float = 30;
 	private static inline var MinRotDegrees:Float = -30;
-	private var degreesPerSecond:Float = 100;
+	private var degreesPerSecond:Float;
 	private var sign:Sign;
+	private var tracker:Tracker;
 
-	public function new( sign:Sign ) {
+	public function new( sign:Sign, tracker:Tracker ) {
 		this.sign = sign;
+		this.tracker = tracker;
+		// trying to match the beat.
+		this.degreesPerSecond = (MaxRotDegrees - MinRotDegrees) / (this.tracker.msecPerBeat/1000);
 	}
 
     public function update( dt:Float ):Bool {

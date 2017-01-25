@@ -12,9 +12,9 @@ import com.obfusco.hxspin.util.TimeInterpolator;
 class Tracker {
 
 	private var filename:String;
-	private var bpm:Float;
+	public var bpm:Float;
+	public var msecPerBeat:Float;
 	private var sound:FlxSound;
-	private var msecPerBeat:Float;
 	private var lastBeatMsec:Float;
     private var ti:TimeInterpolator;
 	

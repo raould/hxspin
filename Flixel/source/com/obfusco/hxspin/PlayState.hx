@@ -40,7 +40,8 @@ class PlayState extends FlxState
 		);
 		add(p);
 
-		var s = new Sign(K.OffscreenX, K.OffscreenY);
+		// currently i *do* want us to have to make a new Sign when the song/bpm changes.
+		var s = new Sign(tracker, K.OffscreenX, K.OffscreenY);
 		s.setPosition(
 			p.x + p.frameWidth/2 - s.frameWidth/2,
 			// todo: instead of hard-coded position by the hands in the
