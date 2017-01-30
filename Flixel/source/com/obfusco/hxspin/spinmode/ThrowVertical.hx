@@ -2,6 +2,7 @@ package com.obfusco.hxspin.spinmode;
 
 import com.obfusco.hxspin.*;
 import com.obfusco.hxspin.Units;
+import com.obfusco.hxspin.DB;
 import com.obfusco.hxspin.sprites.*;
 
 class ThrowVertical implements ISpinMode {
@@ -19,7 +20,7 @@ class ThrowVertical implements ISpinMode {
 		this.sign = sign;
 		this.tracker = tracker;
 		this.oy = this.sign.y;
-		this.m = new Particle( K.SignMass );
+		this.m = new Particle( DB.g.k.SignMass );
 		ParticleSpriteUtil.s2m( this.sign, m );
 		this.m.vy = -50;
 	}
@@ -27,8 +28,8 @@ class ThrowVertical implements ISpinMode {
     public function update( dt:Float ):Bool {
 		var done;
 		if( m.py <= oy ) {
-			m.applyGravity( K.Gravity );
-			K.Step( dt, m );
+			m.applyGravity( DB.g.k.Gravity );
+			DB.g.solver( dt, m );
 			ParticleSpriteUtil.m2s( m, sign );
 			done = false;
 		}

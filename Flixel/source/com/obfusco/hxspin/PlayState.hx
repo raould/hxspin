@@ -10,7 +10,7 @@ import flixel.ui.FlxButton;
 import flixel.math.FlxMath;
 import flixel.util.FlxColor;
 import com.obfusco.hxspin.Units;
-import com.obfusco.hxspin.K;
+import com.obfusco.hxspin.DB;
 import com.obfusco.hxspin.sprites.*;
 import com.obfusco.hxspin.spinmode.*;
 
@@ -29,7 +29,7 @@ class PlayState extends FlxState
 
 	override public function create():Void
 	{
-		tracker = new Tracker( K.Music_m1_path, K.Music_m1_bpm );
+		tracker = new Tracker( DB.g.k.Music_m1_path, DB.g.k.Music_m1_bpm );
 		tracker.start();
 
         // bgColor changing is mostly just for debugging beats, not intended gameplay.
@@ -39,7 +39,7 @@ class PlayState extends FlxState
 		
 		// todo: abstract these out, too hard-coded in-lined here...
 
-		person = new Person(K.OffscreenX, K.OffscreenY);
+		person = new Person(DB.g.k.OffscreenX, DB.g.k.OffscreenY);
 		person.setPosition(
 			FlxG.width/2 - person.frameWidth/2,
 			FlxG.height - person.frameHeight
@@ -47,7 +47,7 @@ class PlayState extends FlxState
 		add( person );
 
 		// currently i *do* want us to have to make a new Sign when the song/bpm changes.
-		sign = new Sign( tracker, K.OffscreenX, K.OffscreenY );
+		sign = new Sign( tracker, DB.g.k.OffscreenX, DB.g.k.OffscreenY );
 		sign.setPosition(
 			person.x + person.frameWidth/2 - sign.frameWidth/2,
 			// todo: instead of hard-coded position by the hands in the

@@ -3,7 +3,7 @@ package com.obfusco.hxspin.sprites;
 import flixel.FlxSprite;
 import flixel.system.FlxAssets.FlxGraphicAsset;
 import com.obfusco.hxspin.Units;
-import com.obfusco.hxspin.K;
+import com.obfusco.hxspin.DB;
 import com.obfusco.hxspin.*;
 import com.obfusco.hxspin.spinmode.*;
 
@@ -15,7 +15,14 @@ class Sign extends FlxSprite
 	public function new(tracker:Tracker, ?X:Pos=0, ?Y:Pos=0) {
 		super(X, Y);
 		this.tracker = tracker;
-		loadGraphic( K.Image_sign_path, false, K.Image_sign_width, K.Image_sign_height );
+		loadGraphic(
+			DB.g.k.Image_sign_path,
+			false,
+			// todo: blah, should not be casting, really, i guess,
+			// should have a Units types that is integers?
+			Std.int(DB.g.k.Image_sign_width),
+			Std.int(DB.g.k.Image_sign_height)
+		);
 		// set updater later since x, y here might be offscreen.
 	}
 
