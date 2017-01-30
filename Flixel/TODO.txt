@@ -15,8 +15,9 @@ FIXES
 
 + implement nicer less hard coding of asset metdata (path, resolution, bpm).
 
-+ right format per platform (ogg, mp3, wav, etc.).
++ right format per platform (e.g. for music: ogg, mp3, wav, etc.).
   + can be done in Project.xml apparently.
+  + http://haxeflixel.com/documentation/multiple-platforms/
 
 + software rotation is purportedly 10x slower than rotation via tilesheet frames.
 

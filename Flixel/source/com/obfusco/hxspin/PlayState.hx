@@ -1,5 +1,7 @@
 package com.obfusco.hxspin;
 
+import Sys;
+import openfl.Lib;
 import flixel.FlxG;
 import flixel.FlxSprite;
 import flixel.FlxState;
@@ -10,9 +12,12 @@ import flixel.util.FlxColor;
 import com.obfusco.hxspin.Units;
 import com.obfusco.hxspin.K;
 import com.obfusco.hxspin.sprites.*;
+import com.obfusco.hxspin.spinmode.*;
 
 class PlayState extends FlxState
 {
+	private var person:Person;
+	private var sign:Sign; // todo: put this on the player object?
 	private var tracker:Tracker;
 	private var bgColors:Array<FlxColor>;
 	private var bgColorIndex:Int;
@@ -26,6 +31,7 @@ class PlayState extends FlxState
 	{
 		tracker = new Tracker( K.Music_m1_path, K.Music_m1_bpm );
 		tracker.start();
+
         // bgColor changing is mostly just for debugging beats, not intended gameplay.
 		bgColors = [ FlxColor.RED, FlxColor.BLUE ];
 		bgColorIndex = 0;
@@ -33,23 +39,23 @@ class PlayState extends FlxState
 		
 		// todo: abstract these out, too hard-coded in-lined here...
 
-		var p = new Person(K.OffscreenX, K.OffscreenY);
-		p.setPosition(
-			FlxG.width/2 - p.frameWidth/2,
-			FlxG.height - p.frameHeight
+		person = new Person(K.OffscreenX, K.OffscreenY);
+		person.setPosition(
+			FlxG.width/2 - person.frameWidth/2,
+			FlxG.height - person.frameHeight
 		);
-		add(p);
+		add( person );
 
 		// currently i *do* want us to have to make a new Sign when the song/bpm changes.
-		var s = new Sign(tracker, K.OffscreenX, K.OffscreenY);
-		s.setPosition(
-			p.x + p.frameWidth/2 - s.frameWidth/2,
+		sign = new Sign( tracker, K.OffscreenX, K.OffscreenY );
+		sign.setPosition(
+			person.x + person.frameWidth/2 - sign.frameWidth/2,
 			// todo: instead of hard-coded position by the hands in the
 			// image, the player image should have hotspots registered and
 			// the sign should be set relative to them. blah.
-			p.y + p.frameHeight/2 - s.frameHeight/2 - 20
+			person.y + person.frameHeight/2 - sign.frameHeight/2 - 20
 		);
-		add(s);
+		add( sign );
 
 		super.create();
 	}
@@ -57,6 +63,15 @@ class PlayState extends FlxState
 	override public function update( dt:Seconds ):Void
 	{
 		super.update( dt );
+		if( Input.isQuitPressed() ) {
+			Lib.exit(); // rumor has it this doesn't work on all platforms,
+			Sys.exit( 0 ); // hence this backup call to exit.
+		}
+		if( Input.getPressed() ) {
+			sign.trySpinMode( function( t:Tracker ):ISpinMode {
+					return new ThrowVertical( sign, t );
+				} );
+		}
 		if( tracker.didBeatHappen() ) {
 			nextBgColor();
 		}

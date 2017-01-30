@@ -23,9 +23,18 @@ class Sign extends FlxSprite
 		return new Wiggle( this, tracker );
 	}
 
+	// @return false if for whatever reason the given sign mode cannot be started i.e.
+	// because 
+	public function trySpinMode( fn:Tracker->ISpinMode ):Bool {
+		var can = updater != null && updater.isExclusive == false;
+		if( can ) {
+			updater = fn( tracker );
+		}
+		return can;
+	}
+
 	override public function update( dt:Seconds ):Void {
 		if( updater == null ) {
-			//updater = new ThrowVertical( this, tracker );
 			updater = getDefaultUpdater();
 		}
 		var done = updater.update( dt );
