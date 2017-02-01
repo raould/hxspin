@@ -3,7 +3,7 @@ package com.obfusco.hxspin.spinmode;
 import com.obfusco.hxspin.sprites.Sign;
 
 class FlipHorizontal implements ISpinMode {
-    
+	public var isExclusive:Bool;
 	private static inline var MaxScale:Float = 1;
 	private var scalePerSecond:Float;
 	private var currentScale:Float;
@@ -12,6 +12,7 @@ class FlipHorizontal implements ISpinMode {
 	private var tracker:Tracker;
 
 	public function new( sign:Sign, tracker:Tracker ) {
+		this.isExclusive = true;
 		this.sign = sign;
 		this.tracker = tracker;
 		this.scalePerSecond = 0.5;
@@ -32,6 +33,7 @@ class FlipHorizontal implements ISpinMode {
     private function updateFlip():Void {
 		if ((isFlipped && currentScale >= 1.0) || (!isFlipped && currentScale <= 0.0)) {
 			isFlipped = !isFlipped;
+			sign.flip();
 		}
 		if (isFlipped) {
 			currentScale += 0.1;
