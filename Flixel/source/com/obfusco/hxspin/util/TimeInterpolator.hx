@@ -1,5 +1,13 @@
 package com.obfusco.hxspin.util;
 
+/* attempt to deal with lack of
+   accuracy+precision in openfl/lime
+   tracking of audio playback.
+   this doesn't manage to fix the problem,
+   however. fortunately there's updates
+   in openfl/lime that supposedly fix it,
+   but we have to back port those for flixel. */
+
 class TimeInterpolator {
 
     private var lastRoughMsec:Float;

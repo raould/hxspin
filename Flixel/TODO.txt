@@ -1,4 +1,12 @@
-FIXES
+========================================
+
++ see the ISSUES.txt file for "bug" reporting.
+
+========================================
+
+TODO FIXES:
+
++ backport the better audio time tracking from newer lime/openfl to flixel.
 
 + sucks-a-lot that apparently the "openfl run neko" type command can get confused about the sources vs. exported (compiled) files, and not be updating the output, so much so that now i always do "make clean run-neko".
 
@@ -25,6 +33,8 @@ FIXES
 
 + while i don't like having lots of things keeping references to each other e.g. the Sign vs. ISpinModes, since that can lead to painful memory debugging later, this *is* OOP code - so eff it.
 
-IDEAS
+========================================
+
+IDEAS:
 
 + might be funny to do a fake 3d spin around the head effect.
