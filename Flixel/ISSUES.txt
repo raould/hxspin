@@ -4,21 +4,26 @@
 
 * ISSUE TEMPLATE:
 
-Expected:
+EXPECTED:
 
-Actual:
+ACTUAL:
 
-Description:
+TODO:
+
+DESCRIPTION:
 
 ========================================
 
 * SIGN MODE EXLCUSIVITY:
 
-Expected: pressing the space bar throws the sign in the air.
+EXPECTED: Pressing the space bar throws the sign in the air.
 
-Actual: pressing the space bar never does anything.
+ACTUAL: Pressing the space bar never does anything.
 
-Description: The current intent is for the user to be able to press the
+TODO: Design and implement however we want inputs to be related to sign
+modes. It is currently an overly useless limited hack.
+
+DESCRIPTION: The current intent is for the user to be able to press the
 space bar and have the sign be tossed up into the air.
 ISpinMode.isExclusive is used to determine if the current animation
 prevents that from happening e.g. the sign is already up in the air.
