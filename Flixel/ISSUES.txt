@@ -1,0 +1,38 @@
+(don't like jira etc. so just use this dumb text file.)
+
+========================================
+
+* ISSUE TEMPLATE:
+
+EXPECTED:
+
+ACTUAL:
+
+TODO:
+
+DESCRIPTION:
+
+========================================
+
+* SIGN MODE EXLCUSIVITY:
+
+EXPECTED: Pressing the space bar throws the sign in the air.
+
+ACTUAL: Pressing the space bar never does anything.
+
+TODO: Design and implement however we want inputs to be related to sign
+modes. It is currently an overly useless limited hack.
+
+DESCRIPTION: The current intent is for the user to be able to press the
+space bar and have the sign be tossed up into the air.
+ISpinMode.isExclusive is used to determine if the current animation
+prevents that from happening e.g. the sign is already up in the air.
+
+It is expected that the normal mode of the player and sign is to be
+standing still doing only a little bit of motion (to not look wooden
+dead), and to allow the user to start a more active spin motion by
+pressing the space bar.
+
+Hence, PlayState.update() is checking for that keypress, but the Sign
+never starts the Throw animation because the Flip animation never stops
+and is exclusive.
