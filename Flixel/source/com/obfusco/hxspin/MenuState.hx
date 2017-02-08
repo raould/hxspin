@@ -9,15 +9,12 @@ import flixel.math.FlxMath;
 
 // todo: flesh me out.
 
-class MenuState extends FlxState
-{
-	override public function create():Void
-	{
+class MenuState extends FlxState {
+	override public function create():Void {
 		super.create();
 	}
 
-	override public function update(dt:Float):Void
-	{
+	override public function update(dt:Float):Void {
 		super.update(dt);
 	}
 }

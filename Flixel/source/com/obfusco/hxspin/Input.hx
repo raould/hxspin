@@ -19,6 +19,9 @@ class Input {
 }
 
 /*
+  todo: something like the below
+  or something more OOPY.
+
 		#if (web || desktop)
 		keyboardControls();
 		mouseControls();

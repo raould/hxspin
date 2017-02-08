@@ -14,8 +14,8 @@ import com.obfusco.hxspin.DB;
 import com.obfusco.hxspin.sprites.*;
 import com.obfusco.hxspin.spinmode.*;
 
-class PlayState extends FlxState
-{
+class PlayState extends FlxState {
+
 	private var person:Person;
 	private var sign:Sign; // todo: put this on the player object?
 	private var tracker:Tracker;
@@ -27,8 +27,7 @@ class PlayState extends FlxState
 		bgColorIndex = (bgColorIndex + 1) % bgColors.length;
 	}
 
-	override public function create():Void
-	{
+	override public function create():Void {
 		tracker = new Tracker( DB.g.k.Music_m1_path, DB.g.k.Music_m1_bpm );
 		tracker.start();
 
@@ -60,8 +59,7 @@ class PlayState extends FlxState
 		super.create();
 	}
 
-	override public function update( dt:Seconds ):Void
-	{
+	override public function update( dt:Seconds ):Void {
 		super.update( dt );
 		if( Input.isQuitPressed() ) {
 			Lib.exit(); // rumor has it this doesn't work on all platforms,

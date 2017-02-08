@@ -4,8 +4,7 @@ import flixel.FlxGame;
 import openfl.Lib;
 import openfl.display.Sprite;
 
-class Main extends Sprite
-{
+class Main extends Sprite {
 	private static var ops:List<Void->Void> = new List<Void->Void>();
 	public static function addOp( op : Void -> Void ) : Void {
 		ops.add( op );
@@ -16,8 +15,7 @@ class Main extends Sprite
 		}
 	}
 	
-	public function new()
-	{
+	public function new() {
 		super();
 		var g = new FlxGame(
 			0, 0,

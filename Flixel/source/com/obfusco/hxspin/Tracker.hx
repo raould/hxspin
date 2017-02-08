@@ -18,8 +18,7 @@ class Tracker {
 	private var lastBeatMsec:Float;
     private var ti:TimeInterpolator;
 	
-	public function new( filename:String, bpm:Float )
-	{
+	public function new( filename:String, bpm:Float ) {
 		this.filename = filename;
 		this.bpm = bpm;
 		this.sound = FlxG.sound.load( filename, 1 );
