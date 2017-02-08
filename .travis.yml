@@ -1,0 +1,18 @@
+language: haxe
+
+os:
+ - linux
+
+# since 3.2.1 is what i have on my own laptop.
+haxe:
+ - "3.2.1"
+
+install:
+ - haxelib install flixel
+ - haxelib run openfl setup
+
+script:
+ - cd Flixel && make build-neko
+
+
+
