@@ -7,9 +7,14 @@ os:
 haxe:
  - "3.2.1"
 
+cache:
+  directories:
+  - `haxelib config`
+
 install:
- - haxelib install flixel > /dev/null
- - haxelib run openfl setup > /dev/null
+ - travis_wait haxelib install flixel > /dev/null
+ - travis_wait haxelib run openfl setup > /dev/null
+ - haxelib config
 
 script:
  - cd Flixel && make build-neko
