@@ -8,8 +8,8 @@ haxe:
  - "3.2.1"
 
 install:
- - haxelib install flixel
- - haxelib run openfl setup
+ - haxelib install flixel > /dev/null
+ - haxelib run openfl setup > /dev/null
 
 script:
  - cd Flixel && make build-neko
