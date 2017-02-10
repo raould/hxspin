@@ -9,44 +9,33 @@ import com.obfusco.hxspin.*;
 import com.obfusco.hxspin.spinmode.*;
 import com.obfusco.hxspin.spinmode.ISpinMode;
 
+enum Side {
+	Front;
+	Back;
+}
+
 class Sign extends FlxSprite
 {
 	private var tracker:Tracker;
 	private var updater:ISpinMode;
-	private var isFront:Bool; // front or back visible
+	private var side:Side;
 
 	public function new(tracker:Tracker, ?X:Pos=0, ?Y:Pos=0) {
 		super(X, Y);
 		this.tracker = tracker;
-		this.isFront = true;
-		loadGraphic(
-			DB.g.k.Image_sign_front_path,
-			false,
-			// todo: blah, should not be casting, really, i guess,
-			// should have a Units types that is integers?
-			Std.int(DB.g.k.Image_sign_width),
-			Std.int(DB.g.k.Image_sign_height)
-		);
-		// set updater later since x, y here might be offscreen.
-	}
+		this.side = Front;
+		loadSideGraphic();
 
-	private function getRandomUpdater():ISpinMode {
-		var i:Int = FlxG.random.int(1, 4);
-		switch (i) {
-			case 1:
-				return new ThrowVertical( this, tracker );
-			case 2:
-				return new FlipVertical( this, tracker );
-			case 3:
-				return new FlipHorizontal( this, tracker );
-			case 4:
-				return new Wiggle( this, tracker );
-		}
-		return new Wiggle( this, tracker );
+		// set the 'updater' later since x, y here might be offscreen,
+		// which would confuse the updater.
+
+		// todo: er, therefore, maybe make the updaters reset themselves
+		// to the current person location when they first start, so the
+		// position cathes up? dunno.
 	}
 
 	private function getDefaultUpdater():ISpinMode {
-		return new Wiggle( this, tracker );
+		return new FlipVertical( this, tracker );
 	}
 
 	// @return false if for whatever reason the given sign mode cannot be started i.e.
@@ -61,32 +50,35 @@ class Sign extends FlxSprite
 
 	override public function update( dt:Seconds ):Void {
 		if( updater == null ) {
-			//updater = new ThrowVertical( this, tracker );
-			updater = new FlipVertical( this, tracker );
-			//updater = new FlipHorizontal( this, tracker );
-			//updater = new Wiggle( this, tracker );
-			//updater = getDefaultUpdater();
+			updater = getDefaultUpdater();
 		}
 		var done = updater.update( dt );
 		switch( done ) {
-			case NotRunning:
-			updater = getDefaultUpdater();
-			case Running:
-			// no change.
+			case NotRunning: updater = getDefaultUpdater();
+			case Running: // no change.
 		}
 	}
 
+	public function flipSide():Void {
+		switch( side ) {
+			case Front:	side = Back;
+			case Back: side = Front;
+		}
+		loadSideGraphic();
+	}
 
-
-	public function flip():Void {
-		// Flip sign.
-		isFront = !isFront;
-		var fga:FlxGraphicAsset = isFront ? DB.g.k.Image_sign_front_path : DB.g.k.Image_sign_back_path;
-
+	private function loadSideGraphic():Void {
+		var fga:FlxGraphicAsset;
+		switch( side ) {
+			case Front: fga = DB.g.k.Image_sign_front_path;
+			case Back: fga = DB.g.k.Image_sign_back_path;
+		}
 		// IIUC, these are cached once loaded.
 		loadGraphic(
 			fga, 
 			false,
+			// todo: blah, should not be casting, really, i guess,
+			// should have a Units types that is integers?
 			Std.int(DB.g.k.Image_sign_width),
 			Std.int(DB.g.k.Image_sign_height)
 		);

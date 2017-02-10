@@ -35,7 +35,7 @@ class FlipVertical implements ISpinMode {
     private function updateFlip():Void {
 		if ((isFlipped && currentScale >= 1.0) || (!isFlipped && currentScale <= 0.0)) {
 			isFlipped = !isFlipped;
-			sign.flip();
+			sign.flipSide();
 		}
 		if (isFlipped) {
 			currentScale += 0.1;
