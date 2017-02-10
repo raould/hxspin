@@ -18,11 +18,12 @@ cache:
   - /home/travis/haxe/lib
 
 install:
+ - export LOG_FILE=/tmp/log	
  - echo $(haxelib config)
- - rm /tmp/log
- - travis_wait haxelib --always install flixel >> /tmp/log
- - travis_wait haxelib --alwyas run openfl setup > /tmp/log
- - echo $(cat /tmp/log)
+ - if [ -e ${LOG_FILE} ] ; then rm ${LOG_FILE}; fi
+ - travis_wait haxelib --always install flixel >> ${LOG_FILE}
+ - travis_wait haxelib --alwyas run openfl setup > ${LOG_FILE}
+ - echo $(cat ${LOG_FILE})
 
 script:
  - cd Flixel && make build-neko
