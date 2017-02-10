@@ -19,8 +19,10 @@ cache:
 
 install:
  - echo $(haxelib config)
- - travis_wait haxelib install flixel > /dev/null
- - travis_wait haxelib run openfl setup > /dev/null
+ - rm /tmp/log
+ - travis_wait haxelib --always install flixel >> /tmp/log
+ - travis_wait haxelib --alwyas run openfl setup > /tmp/log
+ - echo $(cat /tmp/log)
 
 script:
  - cd Flixel && make build-neko
