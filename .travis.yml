@@ -26,7 +26,7 @@ install:
  - if [ -e ${LOG_FILE} ] ; then rm ${LOG_FILE}; fi
  - travis_wait haxelib --always install flixel >> ${LOG_FILE}
  - travis_wait $(yes 'y' | haxelib --always run openfl setup >> ${LOG_FILE})
- - echo $(cat ${LOG_FILE})
+ - echo $(tail -100 ${LOG_FILE})
 
 script:
  - cd Flixel && make build-neko
