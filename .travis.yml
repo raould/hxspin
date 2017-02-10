@@ -1,11 +1,16 @@
+# (gosh i dislike yml.)
+
 language: haxe
 
 os:
  - linux
 
-# since 3.2.1 is what i have on my own laptop.
+# because haxe version 3.2.1 is what i have on my own laptop.
 haxe:
  - "3.2.1"
+
+# because neko version 2.1.0 is what i have on my own laptop.
+neko: "2.1.0"
 
 # empirically discovered from the echo below, whatever.
 cache:
