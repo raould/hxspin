@@ -7,9 +7,10 @@ os:
 haxe:
  - "3.2.1"
 
+# empirically discovered from the echo below, whatever.
 cache:
   directories:
-  - /usr/share/haxelib
+  - /home/travis/haxe/lib
 
 install:
  - echo $(haxelib config)
