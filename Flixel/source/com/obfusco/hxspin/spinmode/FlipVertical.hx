@@ -1,10 +1,11 @@
 package com.obfusco.hxspin.spinmode;
 
 import com.obfusco.hxspin.sprites.Sign;
+import com.obfusco.hxspin.spinmode.ISpinMode;
 
 class FlipVertical implements ISpinMode {
     
-	public var isExclusive:Bool;
+	public var interruptable:Interruptable;
 	private static inline var MaxScale:Float = 1;
 	private var scalePerSecond:Float;
 	private var currentScale:Float;
@@ -13,7 +14,7 @@ class FlipVertical implements ISpinMode {
 	private var tracker:Tracker;
 
 	public function new( sign:Sign, tracker:Tracker ) {
-		this.isExclusive = true;
+		this.interruptable = Interruptable;
 		this.sign = sign;
 		this.tracker = tracker;
 		this.scalePerSecond = 0.5;
@@ -21,10 +22,10 @@ class FlipVertical implements ISpinMode {
 		this.currentScale = 1.0;
 	}
 
-    public function update( dt:Float ):Bool {
+    public function update( dt:Float ):Running {
 		updateFlip();
 		sign.scale.set( 1, this.currentScale );
-		return false; // never really ends until interrupted.
+		return Running;
 	}
 
 	private function stepScale( dt:Float ):Float {

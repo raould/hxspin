@@ -7,6 +7,7 @@ import com.obfusco.hxspin.Units;
 import com.obfusco.hxspin.DB;
 import com.obfusco.hxspin.*;
 import com.obfusco.hxspin.spinmode.*;
+import com.obfusco.hxspin.spinmode.ISpinMode;
 
 class Sign extends FlxSprite
 {
@@ -51,7 +52,7 @@ class Sign extends FlxSprite
 	// @return false if for whatever reason the given sign mode cannot be started i.e.
 	// because 
 	public function trySpinMode( fn:Tracker->ISpinMode ):Bool {
-		var can = updater != null && updater.isExclusive == false;
+		var can = updater != null && updater.interruptable == Interruptable;
 		if( can ) {
 			updater = fn( tracker );
 		}
@@ -67,8 +68,11 @@ class Sign extends FlxSprite
 			//updater = getDefaultUpdater();
 		}
 		var done = updater.update( dt );
-		if( done ) {
+		switch( done ) {
+			case NotRunning:
 			updater = getDefaultUpdater();
+			case Running:
+			// no change.
 		}
 	}
 
