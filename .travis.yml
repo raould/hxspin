@@ -9,7 +9,7 @@ haxe:
 
 cache:
   directories:
-  - `haxelib config`
+  - /usr/share/haxelib
 
 install:
  - travis_wait haxelib install flixel > /dev/null
