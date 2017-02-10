@@ -12,7 +12,7 @@ cache:
   - /usr/share/haxelib
 
 install:
- - haxelib config
+ - echo $(haxelib config)
  - travis_wait haxelib install flixel > /dev/null
  - travis_wait haxelib run openfl setup > /dev/null
 
