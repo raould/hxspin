@@ -22,7 +22,7 @@ install:
  - echo $(haxelib config)
  - if [ -e ${LOG_FILE} ] ; then rm ${LOG_FILE}; fi
  - travis_wait haxelib --always install flixel >> ${LOG_FILE}
- - travis_wait haxelib --alwyas run openfl setup > ${LOG_FILE}
+ - travis_wait haxelib --always run openfl setup >> ${LOG_FILE}
  - echo $(cat ${LOG_FILE})
 
 script:
