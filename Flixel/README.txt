@@ -1,6 +1,7 @@
 requirements:
 1) Haxe Flixl.
 2) everything Haxe Flixl requires.
+3) backport https://github.com/openfl/lime/issues/898#event-935168531 to lime 2.9.1
 
 to run:
 0) git clone this repo.
