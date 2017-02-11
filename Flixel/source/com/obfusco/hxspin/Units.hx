@@ -9,6 +9,7 @@ package com.obfusco.hxspin;
 typedef Seconds = Float;
 typedef Mass = Float;
 typedef Dim = Float;
+typedef Pixels = Int;
 typedef Pos = Float;
 typedef Vel = Float;
 typedef Acc = Float;

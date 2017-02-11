@@ -77,10 +77,8 @@ class Sign extends FlxSprite
 		loadGraphic(
 			fga, 
 			false,
-			// todo: blah, should not be casting, really, i guess,
-			// should have a Units types that is integers?
-			Std.int(DB.g.k.Image_sign_width),
-			Std.int(DB.g.k.Image_sign_height)
+			DB.g.k.Image_sign_width,
+			DB.g.k.Image_sign_height
 		);
 	}
 }

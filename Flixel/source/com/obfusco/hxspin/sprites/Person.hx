@@ -16,10 +16,8 @@ class Person extends FlxSprite
 		loadGraphic(
 			DB.g.k.Image_standing_front_path,
 			false,
-			// todo: blah, should not be casting, really, i guess,
-			// should have a Units types that is integers?
-			Std.int(DB.g.k.Image_standing_width),
-			Std.int(DB.g.k.Image_standing_height)
+			DB.g.k.Image_standing_width,
+			DB.g.k.Image_standing_height
 		);
 	}
 }
