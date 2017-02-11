@@ -3,7 +3,7 @@ package com.obfusco.hxspin;
 import com.obfusco.hxspin.Units;
 import com.obfusco.hxspin.IParticle;
 
-/*
+/**
 
 since this class gets used everywhere,
 the naming will be evil, mean, and terse.

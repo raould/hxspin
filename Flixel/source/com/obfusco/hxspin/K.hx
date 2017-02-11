@@ -6,7 +6,7 @@ class K/*onstants*/ {
 
 	public function new() {}
 
-	// i hate haxe! i just want these to be 'final' instance fields.
+	// i hate haxe?! i just want these to be 'final' instance fields!
 
 	public var Gravity:Acc = 10; // i guess this is pixels/second/second.
 	public var SignMass:Mass = 5;
