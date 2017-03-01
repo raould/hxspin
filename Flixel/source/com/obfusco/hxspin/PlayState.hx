@@ -67,7 +67,7 @@ class PlayState extends FlxState {
 		}
 		if( Input.getPressed() ) {
 			sign.trySpinMode( function( t:Tracker ):ISpinMode {
-					return new ThrowVertical( sign, t );
+			return new ThrowVertical( person, sign, t );
 				} );
 		}
 		if( tracker.didBeatHappen() ) {

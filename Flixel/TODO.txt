@@ -6,11 +6,13 @@
 
 TODO FIXES:
 
++ all the "todo"'s in code.
+
++ nail down, codify which x,y is a corner, vs. a center, vs. whatever else.
+
 + backport the better audio time tracking from newer lime/openfl to flixel.
 
 + sucks-a-lot that apparently the "openfl run neko" type command can get confused about the sources vs. exported (compiled) files, and not be updating the output, so much so that now i always do "make clean run-neko".
-
-+ all the "todo"'s in code.
 
 + sorry the haxe emacs modes are broken in various ways. i am using funda-haxe-mode which means i can't use apostrophes in comments!
 
@@ -19,7 +21,7 @@ TODO FIXES:
 + currently not getting sufficient resolution on audio channels to get good beat matching.
   + flixel is stuck on old versions of lime/openfl, dunno if they have fixed it since then.
 
-+ the physics is crap. as in, there isn't any.
++ implement loading hotspot metadata from image assets, so we can programatically get hand positions from artwork.
 
 + implement nicer less hard coding of asset metdata (path, resolution, bpm).
 

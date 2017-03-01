@@ -13,22 +13,27 @@ class ThrowVertical implements ISpinMode {
 	public var interruptable:Interruptable;
 	private var sign:Sign;
 	private var tracker:Tracker;
-	private var oy:Pos;
+	private var originalY:Pos;
 	private var m:Particle;
 
-	public function new( sign:Sign, tracker:Tracker ) {
-		this.interruptable = Interruptable;
+	public function new( person:Person, sign:Sign, tracker:Tracker ) {
+		// reset the Sign first because we then use that
+		// position to make our own particle.
+		sign.resetToCXY( person.getHandsCXY() );
+
 		this.sign = sign;
 		this.tracker = tracker;
-		this.oy = this.sign.y;
+		this.interruptable = Interruptable;
+
 		this.m = new Particle( DB.g.k.SignMass );
 		ParticleSpriteUtil.s2m( this.sign, m );
 		this.m.vy = -50;
+		this.originalY = this.sign.y;
 	}
 
     public function update( dt:Float ):Running {
 		var done;
-		if( m.py <= oy ) {
+		if( m.py <= originalY ) {
 			m.applyGravity( DB.g.k.Gravity );
 			DB.g.solver( dt, m );
 			ParticleSpriteUtil.m2s( m, sign );

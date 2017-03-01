@@ -8,11 +8,7 @@ import com.obfusco.hxspin.DB;
 import com.obfusco.hxspin.*;
 import com.obfusco.hxspin.spinmode.*;
 import com.obfusco.hxspin.spinmode.ISpinMode;
-
-enum Side {
-	Front;
-	Back;
-}
+import com.obfusco.hxspin.geom.*;
 
 class Sign extends FlxSprite
 {
@@ -57,6 +53,18 @@ class Sign extends FlxSprite
 			case NotRunning: updater = getDefaultUpdater();
 			case Running: // no change.
 		}
+	}
+
+	// todo: fix the positioning bug(s) that i seem to be seeing.
+	// todo: this or some method to help reset to other positions e.g. upside-down?
+	// assumes: the hands are aligned so they make sense with the sign being straight.
+	public function resetToCXY( hands:HandsPositions ):Void {
+		var chx = (hands.left.x + hands.right.x) / 2;
+		var chy = (hands.left.y + hands.right.x) / 2;
+		setPosition( chx-frameWidth/2, chy-frameHeight/2 );
+		scale.set( 1, 1 );
+		side = Front;
+		loadSideGraphic();
 	}
 
 	public function flipSide():Void {
