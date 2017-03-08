@@ -16,6 +16,7 @@ class Person extends FlxSprite
 		super(X, Y);
 		this.side = Front;
 		this.posture = ArmsMiddle;
+		// todo: support graphics for postures as well as sides.
 		loadGraphic(
 			DB.g.k.Image_standing_front_path,
 			false,
@@ -32,9 +33,7 @@ class Person extends FlxSprite
 	public function getHandsCXY():HandsPositions {
 		// todo: e.g. read hotspots of hands from the image data,
 		// which means it changes based on posture.
-		return new HandsPositions(
-			new CXY<Pixels>( cast( x, Pixels ), cast( y, Pixels ) ),
-			new CXY<Pixels>( cast( x, Pixels ), cast( y, Pixels ) )
-		);
+		var tmpcxy = new CXY<Pixels>( cast( x+origin.x, Pixels ), cast( y+origin.y, Pixels ) );
+		return new HandsPositions( tmpcxy, tmpcxy );
 	}
 }
