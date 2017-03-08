@@ -59,9 +59,8 @@ class Sign extends FlxSprite
 	// todo: this or some method to help reset to other positions e.g. upside-down?
 	// assumes: the hands are aligned so they make sense with the sign being straight.
 	public function resetToCXY( hands:HandsPositions ):Void {
-		var chx = (hands.left.x + hands.right.x) / 2;
-		var chy = (hands.left.y + hands.right.x) / 2;
-		setPosition( chx-frameWidth/2, chy-frameHeight/2 );
+		var mid = hands.left.midpoint( hands.right );
+		setPosition( mid.x-frameWidth/2, mid.y-frameHeight/2 );
 		scale.set( 1, 1 );
 		side = Front;
 		loadSideGraphic();
