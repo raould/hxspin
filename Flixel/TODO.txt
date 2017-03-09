@@ -4,6 +4,10 @@
 
 ========================================
 
+STYLE:
+
++ I do not like how Haxe properties work so I try to avoid using the Haxe getters and setters feature.
+
 TODO FIXES:
 
 + all the "todo"'s in code.
